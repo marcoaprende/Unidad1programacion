@@ -5,52 +5,63 @@ package com.mycompany.swithcajero;
 import java.util.Scanner;
 public class Swithcajero {
 
-    public static void main(String[] args) {
-       //Variables
-       final int saldo_inicial=1000;
-       int opcion;
-       double ingreso,SaldoActual,retiro;
-       Scanner entrada=new Scanner(System.in);
-       
-       
-       System.out.println("1. Ingresa Dinero a la Cuenta:");
-       System.out.println("2. Retirar Dinero de la  Cuenta:");
-       System.out.println("3. Salir");
-
-        
-       System.out.println(" Ingresa un Numero");
-       opcion = entrada.nextInt();
-       
-       switch(opcion){
-           case 1:
-       System.out.println("Digita la cantidad que desea ingresar en la cuenta:");
-       ingreso=entrada.nextDouble();
-       SaldoActual = saldo_inicial+ingreso;  
-       System.out.println("El saldo actual es "+ SaldoActual);
-       break;
-       
-           case 2:
-       System.out.println("Digite la cantidad que desea retirar:");
-       retiro=entrada.nextDouble();
-       if(retiro>=saldo_inicial){
-           SaldoActual=saldo_inicial-retiro;
-       System.out.println("Dinero en cuentra:"+SaldoActual);
-           
-       }
-
-         {
-     System.out.println("No cuentas con el  saldo suficiente");   
-         }
-         break;
-           case 3:
-           break;
-           default:
-           
-           
-           
-       }
-        
-        
+       public static  int opcion,opcion2;
+        public static double ingresodato,retiro,saldo;
+        public static Scanner entrada = new Scanner(System.in);
+    
+  public static void main(String[] args) {
+Bucle();
+    }
+ public static void LecturaOpcion() {
+    //Menu para ingresar opciones  
+System.out.println("Depositar con 1");
+System.out.println("Retirar con 2");
+opcion = entrada.nextInt();
+    }
+ public static void Opciones()  {
+     //Muestra el saldo antes del movimiento
+System.out.println("Tu saldo es de " + saldo);
+     //PROCESO DESPUES DE LA SELECCION DE OPCIONES PRECESO
+     if (opcion == 1){
+    System.out.println("Ingresa monto del deposito");
+    ingresodato = entrada.nextDouble();
+    saldo =(saldo + ingresodato); 
+    System.out.println("Tu saldo es de " + saldo);
+ }    
+  if (opcion == 2){
+   
+        System.out.println("Ingresa monto del retiro");
+      ingresodato = entrada.nextDouble();
+    if(ingresodato<=saldo){
+        saldo =(saldo - ingresodato);
+            System.out.println("Tu saldo es de " + saldo);
+    }
+    else
+    {
+     System.out.println("No saldo");   
+    }
+   } 
+ 
+ }
+ public static void Bucle(){
+  //Variable para bucle  
+     int c=1; 
+ //Bucle
+     while(c==1){
+         System.out.println("¿Quieres movimiento en tu cuenta?");
+     
+          System.out.println("Coloca 1 para SI////Coloca 2 para NO");
+            opcion2=entrada.nextInt();
+   if(opcion2 == 1)  
+     {
+         LecturaOpcion();
+         Opciones();
+     }
+   else{
+     System.out.println("Vuelva Pronto");  
+     c++;
+   }
+     }
         
         
         
